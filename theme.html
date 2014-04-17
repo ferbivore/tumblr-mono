@@ -13,16 +13,15 @@
     <meta name="text:Mobile Layout Width Treshold" content="760px" />
     <meta name="text:Copyright Holder" content="" />
     <meta name="text:Fonts" content="DejaVu Sans Mono, Monaco, Andale Mono, Lucida Console, monospace" />
-    <meta name="text:Font Size" content="14px" />
-    <meta name="text:Small Font Size" content="12px" />
+    <meta name="text:Font Size" content="normal" />
+    <meta name="text:Small Font Size" content="small" />
     <meta name="color:Background" content="white" />
     <meta name="color:Text" content="black" />
     <meta name="color:Accent" content="gray" />
-    <meta name="color:Light Accent" content="#eee" />
+    <meta name="color:Formatting Accent" content="#eee" />
     <meta name="color:Link Color" content="gray" />
     <meta name="color:Link Hover Color" content="lightblue" />
     <meta name="color:Code Color" content="black" />
-    <meta name="color:Code Background Color" content="#eee" />
     <meta name="if:Word Wrap Code" content="0" />
     <meta name="if:Underline Links" content="0" />
     <meta name="if:Underline Links on Hover" content="0" />
@@ -65,12 +64,12 @@
             white-space:-pre-wrap;
             word-wrap:break-word;
             {/block:IfWordWrapCode}
-            background-color:{color:Code Background Color};
+            background-color:{color:Formatting Accent};
             color:{color:Code Color};}
-        code{background-color:{color:Code Background Color};
+        code{background-color:{color:Formatting Accent};
              color:{color:Code Color};}
         blockquote{margin-left:0;padding-left:0.5em;
-                   border-left:2px solid {color:Light Accent};}
+                   border-left:2px solid {color:Formatting Accent};}
         ul{margin-left:0;padding:0;}
         ul li{margin-left:2em;}
         ol{margin-left:0;padding:0;}
@@ -90,8 +89,6 @@
                 {block:IfUnderlineLinksOnHover}
                     text-decoration:underline;
                 {/block:IfUnderlineLinksOnHover}}
-        a.permalink{font-size:0.8em;margin:0;
-                    color:{color:Light Accent};}
         a.link{color:{color:Text};text-decoration:underline;}
         a.link:hover{color:{color:Link Hover Color};}
         a#page-next{float:right;}
