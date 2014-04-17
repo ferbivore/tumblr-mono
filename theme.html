@@ -12,7 +12,7 @@
     <meta name="text:Content Width" content="701px" />
     <meta name="text:Mobile Layout Width Treshold" content="760px" />
     <meta name="text:Copyright Holder" content="" />
-    <meta name="text:Fonts" content="monospace" />
+    <meta name="text:Fonts" content="DejaVu Sans Mono, Monaco, Andale Mono, Lucida Console, monospace" />
     <meta name="text:Font Size" content="normal" />
     <meta name="text:Small Font Size" content="small" />
     <meta name="color:Background" content="white" />
@@ -189,7 +189,7 @@
         <blockquote>"{Quote}"</blockquote>
 
         {block:Source}
-            <p class="source sub">{Source}</p>
+            <p class="source">{Source}</p>
         {/block:Source}
         {block:Date}
         <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
