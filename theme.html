@@ -1,0 +1,298 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>
+        {block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}
+    </title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    <meta name="text:Content Width" content="701px" />
+    <meta name="text:Mobile Layout Width Treshold" content="760px" />
+    <meta name="text:Copyright Holder" content="" />
+    <meta name="text:Fonts" content="monospace" />
+    <meta name="text:Font Size" content="normal" />
+    <meta name="text:Small Font Size" content="small" />
+    <meta name="color:Background" content="white" />
+    <meta name="color:Text" content="black" />
+    <meta name="color:Accent" content="gray" />
+    <meta name="color:Light Accent" content="#eee" />
+    <meta name="color:Link Color" content="gray" />
+    <meta name="color:Link Hover Color" content="lightblue" />
+    <meta name="color:Code Color" content="black" />
+    <meta name="color:Code Background Color" content="#eee" />
+    <meta name="if:Word Wrap Code" content="0" />
+    <meta name="if:Underline Links" content="0" />
+    <meta name="if:Underline Links on Hover" content="0" />
+    <meta name="if:Center Content" content="0" />
+    <meta name="text:Disqus Shortname" content="" />
+    <style>
+        html{font-size:{text:Font Size};font-family:{text:Fonts};
+             color:{color:Text};}
+        body{width:{text:Content Width};margin:1em;margin-left:2em;
+             {block:IfCenterContent}
+             margin-left:auto;margin-right:auto;
+             {/block:IfCenterContent}}
+        hr{width:100%;border:0;border-top:1px dotted {color:Accent};}
+        h1{font-size:2em;margin:0;position:relative;}
+        h1>a{color:inherit;}
+        h2{font-size:1.5em;}
+        h3{font-size:1.4em;color:{color:Accent};}
+        .nobm{margin-bottom:0;}
+        p.description{color:{color:Accent};margin:0;
+                      font-size:{text:Small Font Size};}
+        p.description>#pages{margin:0;float:right;}
+        h1>#pages{font-size:{text:Small Font Size};
+                  text-decoration:none;font-weight:normal;
+                  position:absolute;bottom:0;right:0;}
+        #pages>a{text-decoration:underline;}
+        .sub{font-size:{text:Small Font Size};}
+        .date{font-size:{text:Small Font Size};color:{color:Accent};}
+        div.post{margin-top:1em;margin-bottom:1em;}
+        div.post.video>iframe{width:{text:Content Width};}
+        div.post.audio>iframe{width:{text:Content Width};}
+        pre{margin-left:0;padding:0.5em;width:auto;
+            {block:IfNotWordWrapCode}
+            overflow:auto;
+            {/block:IfNotWordWrapCode}
+            {block:IfWordWrapCode}
+            white-space:pre-wrap;
+            white-space:-moz-pre-wrap;
+            white-space:-o-pre-wrap;
+            white-space:-pre-wrap;
+            word-wrap:break-word;
+            {/block:IfWordWrapCode}
+            background-color:{color:Code Background Color};
+            color:{color:Code Color};}
+        code{background-color:{color:Code Background Color};
+             color:{color:Code Color};}
+        blockquote{margin-left:0;padding-left:0.5em;
+                   border-left:2px solid {color:Light Accent};}
+        ul{margin-left:0;padding:0;}
+        ul li{margin-left:2em;}
+        ol{margin-left:0;padding:0;}
+        ol li{margin-left:2em;}
+        img{width:100%;}
+        a{color:{color:Link Color};
+          {block:IfNotUnderlineLinks}
+            text-decoration:none;
+          {/block:IfNotUnderlineLinks}
+          {block:IfUnderlineLinks}
+            text-decoration:underline;
+          {/block:IfUnderlineLinks}}
+        a:hover{color:{color:Link Hover Color};
+                {block:IfNotUnderlineLinksOnHover}
+                    text-decoration:none;
+                {/block:IfNotUnderlineLinksOnHover}
+                {block:IfUnderlineLinksOnHover}
+                    text-decoration:underline;
+                {/block:IfUnderlineLinksOnHover}}
+        a.permalink{font-size:0.8em;margin:0;
+                    color:{color:Light Accent};}
+        a.link{color:{color:Text};text-decoration:underline;}
+        a#page-next{float:right;}
+        @media(max-width:{text:Mobile Layout Width Treshold}){
+            body{width:90%;margin:auto;margin-top:1em;margin-bottom:1em;}
+            div.post.video>iframe{width:100%;}
+            div.post.audio>iframe{width:100%;}
+        }
+        {CustomCSS}
+    </style>
+</head><body>
+
+<h1><a href="{BlogURL}">{Title}</a>
+{block:ShowDescription}
+</h1><p class="description">
+<span>{Description}</span>
+{/block:ShowDescription}
+<span id="pages"{block:HideDescription} class="sub"{/block:HideDescription}>
+{block:HasPages}
+{block:Pages}<a href={URL}>{Label}</a>{/block:Pages}
+{/block:HasPages}
+{block:AskEnabled}
+<a href="/ask">{AskLabel}</a>
+{/block:AskEnabled}
+</span>
+{block:ShowDescription}
+</p>
+{block:ShowDescription}
+{block:HideDescription}
+</h1>
+{/block:HideDescription}
+<hr/>
+
+<div id="posts">
+{block:Posts}{block:Text}
+    <div class="post text">
+        {block:Title}
+        <h2>{Title}</h2>
+        {/block:Title}
+        {Body}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Text}{block:Photo}
+    <div class="post photo">
+        <a href="{PhotoURL-HighRes}" target="_blank">
+        <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
+        </a>
+
+        {block:Caption}
+            <p class="caption">{Caption}</p>
+        {/block:Caption}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Photo}{block:Panorama}
+    <div class="post panorama">
+        {LinkOpenTag}
+            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+        {LinkCloseTag}{block:Caption}
+            <p class="caption">{Caption}</p>
+        {/block:Caption}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Panorama}{block:Photoset}
+    <div class="post photoset">
+        {Photoset}
+        {block:Caption}
+            <p class="caption">{Caption}</p>
+        {/block:Caption}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Photoset}{block:Quote}
+    <div class="post quote">
+        <blockquote>"{Quote}"</blockquote>
+
+        {block:Source}
+            <p class="source sub">{Source}</p>
+        {/block:Source}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Quote}{block:Link}
+    <div class="post link">
+        <h2 class="nobm"><a href="{URL}" class="link" {Target}>{Name}</a></h2>
+        {block:Host}<p class="description sub">({Host})</p>{/block:Host}
+        {block:Description}
+            <div class="description">{Description}</div>
+        {/block:Description}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Link}{block:Chat}
+    <div class="post chat">
+        {block:Title}
+            <h2>{Title}</h2>
+        {/block:Title}
+
+        <ul class="chat">
+            {block:Lines}
+                <div class="{Alt} user_{UserNumber}">
+                    {block:Label}
+                        <span class="label">{Label}</span>
+                    {/block:Label}{Line}
+                </div>
+            {/block:Lines}
+        </ul>
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Chat}{block:Video}
+    <div class="post video">
+        {Video-700}{block:Caption}
+            <p class="caption">{Caption}</p>
+        {/block:Caption}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Video}{block:Audio}
+    <div class="post audio">
+        {block:AudioEmbed}{AudioEmbed-250}{/block:AudioEmbed}
+        {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
+        {block:ExternalAudio}{ExternalAudioURL}{/block:ExternalAudio}
+        {RawAudioURL}
+        {block:Caption}
+            <p class="caption">{Caption}</p>
+        {/block:Caption}
+        {block:Date}
+        <p class="date">posted {TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
+        {/block:Date}
+        {block:PostNotes}
+        {PostNotes}
+        {/block:PostNotes}
+    </div>
+    <hr/>
+{/block:Audio}{/block:Posts}
+</div>
+
+{block:PermalinkPagination}{block:IfDisqusShortname}
+<div id="disqus_thread"></div><script>
+    var disqus_shortname = "{text:Disqus Shortname}";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script><noscript><a href="http://disqus.com/?ref_noscript">View Disqus comments</a></noscript>
+<hr/>
+{/block:IfDisqusShortname}{/block:PermalinkPagination}
+
+<p id="pagination">
+    {block:PreviousPage}
+        <a id="page-prev" href="{PreviousPage}">&#171; Previous</a>
+    {/block:PreviousPage}{block:NextPage}
+        <a id="page-next" href="{NextPage}">Next &#187;</a>
+    {/block:NextPage}
+</p>
+
+<p id="footer">
+    &copy; {CopyrightYears}{block:IfCopyrightHolder} <b>{text:Copyright Holder}</b>{/block:IfCopyrightHolder}.
+    theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>.
+    <b><a href="/archive">archive</a></a>
+</p>
+</body></html>
