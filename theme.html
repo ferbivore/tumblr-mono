@@ -51,8 +51,8 @@
         p#footer{font-size:{text:Small Font Size};}
         .date{font-size:{text:Small Font Size};color:{color:Accent};}
         div.post{margin-top:1em;margin-bottom:1em;}
-        div.post.video>iframe{width:{text:Content Width};}
-        div.post.audio>iframe{width:{text:Content Width};}
+        div.post.video iframe{width:{text:Content Width};}
+        div.post.audio iframe{width:{text:Content Width};}
         pre{margin-left:0;padding:0.5em;width:auto;
             {block:IfNotWordWrapCode}
             overflow:auto;
@@ -97,8 +97,8 @@
                                     margin-right:1em;}
         @media(max-width:{text:Mobile Layout Width Treshold}){
             body{width:90%;margin:auto;margin-top:1em;margin-bottom:1em;}
-            div.post.video>iframe{width:100%;}
-            div.post.audio>iframe{width:100%;}
+            div.post.video iframe{width:100%;}
+            div.post.audio iframe{width:100%;}
         }
         {CustomCSS}
     </style>
