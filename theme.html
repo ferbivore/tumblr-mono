@@ -10,7 +10,6 @@
     <meta name="description" content="{MetaDescription}" />
     {/block:Description}
     <meta name="text:Content Width" content="701px" />
-    <meta name="text:Mobile Layout Width Treshold" content="760px" />
     <meta name="text:Copyright Holder" content="" />
     <meta name="text:Fonts" content="DejaVu Sans Mono, Monaco, Andale Mono, Lucida Console, monospace" />
     <meta name="text:Font Size" content="14px" />
@@ -26,22 +25,16 @@
     <meta name="if:Underline Links" content="0" />
     <meta name="if:Underline Links on Hover" content="0" />
     <meta name="if:Center Content" content="0" />
-    <meta name="if:Small Title" content="0" />
     <meta name="text:Disqus Shortname" content="" />
     <style>
         html{font-size:{text:Font Size};font-family:{text:Fonts};
              color:{color:Text};}
-        body{width:{text:Content Width};margin:1em;margin-left:2em;
+        body{max-width:{text:Content Width};margin:1em;margin-left:2em;
              {block:IfCenterContent}
              margin-left:auto;margin-right:auto;
-             {/block:IfCenterContent}
-             background-color:{color:Background};}
+             {/block:IfCenterContent}}
         hr{width:100%;border:0;border-top:1px dotted {color:Accent};}
         h1{font-size:2em;margin:0;position:relative;}
-        {block:IfSmallTitle}
-        h1{font-size:{text:Small Font Size};color:{color:Accent};
-           font-weight:normal;}
-        {/block:IfSmallTitle}
         h1>a{color:inherit;}
         h2{font-size:1.5em;}
         h3{font-size:1.4em;color:{color:Accent};}
@@ -57,8 +50,9 @@
         p#footer{font-size:{text:Small Font Size};}
         .date{font-size:{text:Small Font Size};color:{color:Accent};}
         div.post{margin-top:1em;margin-bottom:1em;}
-        div.post.video iframe{width:{text:Content Width};}
-        div.post.audio iframe{width:{text:Content Width};}
+        div.post.video iframe, div.post.audio iframe {
+            width: 100%;
+        }
         pre{margin-left:0;padding:0.5em;width:auto;
             {block:IfNotWordWrapCode}
             overflow:auto;
@@ -101,11 +95,6 @@
         a#page-next{float:right;}
         .like_button,.reblog_button{display:inline-block !important;
                                     margin-right:1em;}
-        @media(max-width:{text:Mobile Layout Width Treshold}){
-            body{width:90%;margin:auto;margin-top:1em;margin-bottom:1em;}
-            div.post.video iframe{width:100%;}
-            div.post.audio iframe{width:100%;}
-        }
         {CustomCSS}
     </style>
 </head><body>
