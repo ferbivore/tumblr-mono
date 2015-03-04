@@ -66,9 +66,9 @@
         .sub{font-size:{text:Small Font Size};}
         p#footer{font-size:{text:Small Font Size};}
         .date{font-size:{text:Small Font Size};color:{color:Accent};}
-        div.post{margin-top:1em;margin-bottom:1em;}
-        div.post.video iframe{width:100%;}
-        div.post.audio iframe{width:100%;}
+        .post{margin-top:1em;margin-bottom:1em;}
+        .post.video iframe{width:100%;}
+        .post.audio iframe{width:100%;}
         pre{margin-left:0;padding:0.5em;width:auto;
             font-family:{text:Mono Fonts};
             {block:IfNotWordWrapCode}
@@ -138,9 +138,9 @@
 {/block:HideDescription}
 <hr/>
 
-<div id="posts">
+<section id="posts">
 {block:Posts}{block:Text}
-    <div class="post text">
+    <article class="post text">
         {block:Title}
         <h2>{Title}</h2>
         {/block:Title}
@@ -154,10 +154,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Text}{block:Photo}
-    <div class="post photo">
+    <article class="post photo">
         <a href="{PhotoURL-HighRes}" target="_blank">
         <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
         </a>
@@ -174,10 +174,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Photo}{block:Panorama}
-    <div class="post panorama">
+    <article class="post panorama">
         {LinkOpenTag}
             <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
         {LinkCloseTag}{block:Caption}
@@ -192,10 +192,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Panorama}{block:Photoset}
-    <div class="post photoset">
+    <article class="post photoset">
         {Photoset}
         {block:Caption}
             <p class="caption">{Caption}</p>
@@ -209,10 +209,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Photoset}{block:Quote}
-    <div class="post quote">
+    <article class="post quote">
         <blockquote>"{Quote}"</blockquote>
 
         {block:Source}
@@ -227,10 +227,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Quote}{block:Link}
-    <div class="post link">
+    <article class="post link">
         <h2 class="nobm"><a href="{URL}" class="link" {Target}>{Name}</a></h2>
         {block:Host}<p class="description sub">({Host})</p>{/block:Host}
         {block:Description}
@@ -245,10 +245,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Link}{block:Chat}
-    <div class="post chat">
+    <article class="post chat">
         {block:Title}
             <h2>{Title}</h2>
         {/block:Title}
@@ -271,10 +271,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Chat}{block:Video}
-    <div class="post video">
+    <article class="post video">
         {Video-700}{block:Caption}
             <p class="caption">{Caption}</p>
         {/block:Caption}
@@ -287,10 +287,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Video}{block:Audio}
-    <div class="post audio">
+    <article class="post audio">
         {block:AudioEmbed}{AudioEmbed-250}{/block:AudioEmbed}
         {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
         {block:ExternalAudio}{ExternalAudioURL}{/block:ExternalAudio}
@@ -307,10 +307,10 @@
         {block:PostNotes}
         {PostNotes-16}
         {/block:PostNotes}
-    </div>
+    </article>
     <hr/>
 {/block:Audio}{/block:Posts}
-</div>
+</section>
 
 {block:PermalinkPagination}
 {block:IfDisqusShortname}
