@@ -11,7 +11,8 @@
     {/block:Description}
     <meta name="text:Content Width" content="701px" />
     <meta name="text:Copyright Holder" content="" />
-    <meta name="text:Fonts" content="DejaVu Sans Mono, Monaco, Andale Mono, Lucida Console, monospace" />
+    <meta name="text:Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
+    <meta name="text:Mono Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
     <meta name="text:Font Size" content="14px" />
     <meta name="text:Small Font Size" content="12px" />
     <meta name="color:Background" content="white" />
@@ -59,6 +60,7 @@
         div.post.video iframe{width:100%;}
         div.post.audio iframe{width:100%;}
         pre{margin-left:0;padding:0.5em;width:auto;
+            font-family:{text:Mono Fonts};
             {block:IfNotWordWrapCode}
             overflow:auto;
             {/block:IfNotWordWrapCode}
@@ -72,7 +74,8 @@
             background-color:{color:Formatting Accent};
             color:{color:Code Color};}
         code{background-color:{color:Formatting Accent};
-             color:{color:Code Color};font-family:inherit;}
+             font-family:{text:Mono Fonts};
+             color:{color:Code Color};}
         blockquote{margin-left:0;padding-left:0.5em;
                    border-left:2px solid {color:Formatting Accent};}
         ul{margin-left:0;padding:0;}
