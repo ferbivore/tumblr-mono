@@ -51,14 +51,18 @@
            {/block:IfCenterContent}
            background-color:{color:Background};
         }
-        hr{
-          width:100%;border:0;
+        article, footer {
+          border: {color:Separator Color};
            {block:IfDottedSeparators}
-             border-top:1px dotted {color:Separator Color};
+             border-top-style: dotted;
            {/block:IfDottedSeparators}
            {block:IfNotDottedSeparators}
-             border-top:1px solid {color:Separator Color};
+             border-top-style: solid;
            {/block:IfNotDottedSeparators}
+        }
+        p, footer {
+          margin-top: {text:Line Height}em;
+          margin-bottom: {text:Line Height}em;
         }
         h1{font-size:2em;
           margin:0;
@@ -344,7 +348,6 @@
 </nav>
 
 <footer>
-    {block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>{/block:IfCopyrightHolder}.
-    theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.
+    {block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>. {/block:IfCopyrightHolder}theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.
 </footer>
 </body></html>
