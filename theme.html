@@ -9,90 +9,115 @@
     {block:Description}
     <meta name="description" content="{MetaDescription}" />
     {/block:Description}
-    <meta name="text:Content Width" content="701px" />
+    <meta name="text:Content Width" content="35em" />
     <meta name="text:Copyright Holder" content="" />
     <meta name="text:Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
     <meta name="text:Mono Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
-    <meta name="text:Font Size" content="14px" />
-    <meta name="text:Small Font Size" content="12px" />
+    <meta name="text:Font Size" content="1em" />
+    <meta name="text:Line Height" content="1.25" />
+    <meta name="text:Small Font Size" content="0.875em" />
     <meta name="color:Background" content="white" />
     <meta name="color:Text" content="black" />
     <meta name="color:Accent" content="gray" />
-    <meta name="color:Formatting Accent" content="#eee" />
+    <meta name="color:Blockquote Border" content="#eee" />
     <meta name="color:Link Color" content="gray" />
     <meta name="color:Link Hover Color" content="lightblue" />
     <meta name="color:Code Color" content="black" />
+    <meta name="color:Code Background Color" content="#eee" />
     <meta name="color:Separator Color" content="lightgray" />
     <meta name="if:Word Wrap Code" content="0" />
     <meta name="if:Underline Links" content="0" />
     <meta name="if:Underline Links on Hover" content="0" />
-    <meta name="if:Center Content" content="0" />
+    <meta name="if:Center Content" content="1" />
     <meta name="if:Small Title" content="0" />
     <meta name="if:Dotted Separators" content="1" />
     <meta name="text:Disqus Shortname" content="" />
     <style>
-        html{font-size:{text:Font Size};font-family:{text:Fonts};
-             color:{color:Text};}
-        body{max-width:{text:Content Width};margin:1em;margin-left:2em;
-             {block:IfCenterContent}
-             margin-left:auto;margin-right:auto;
-             padding-left:1em;padding-right:1em;
-             {/block:IfCenterContent}
-             background-color:{color:Background};}
-        hr{width:100%;border:0;
+        html{
+          font-size:{text:Font Size};
+          line-height:{text:Line Height};
+          font-family:{text:Fonts};
+          color:{color:Text};
+        }
+        body{
+          max-width:{text:Content Width};
+          margin:1em;
+          margin-left:2em;
+           {block:IfCenterContent}
+             margin-left:auto;
+             margin-right:auto;
+             padding-left:1em;
+             padding-right:1em;
+           {/block:IfCenterContent}
+           background-color:{color:Background};
+        }
+        hr{
+          width:100%;border:0;
            {block:IfDottedSeparators}
-           border-top:1px dotted {color:Separator Color};
+             border-top:1px dotted {color:Separator Color};
            {/block:IfDottedSeparators}
            {block:IfNotDottedSeparators}
-           border-top:1px solid {color:Separator Color};
+             border-top:1px solid {color:Separator Color};
            {/block:IfNotDottedSeparators}
         }
-        h1{font-size:2em;margin:0;position:relative;}
+        h1{font-size:2em;
+          margin:0;
+          position:relative;
+        }
         {block:IfSmallTitle}
-        h1{font-size:{text:Small Font Size};color:{color:Accent};
-           font-weight:normal;}
+        h1{font-size:{text:Small Font Size};
+          color:{color:Accent};
+           font-weight:normal;
+         }
         {/block:IfSmallTitle}
         h1>a{color:inherit;}
         h2{font-size:1.5em;}
         h3{font-size:1.4em;color:{color:Accent};}
-        .nobm{margin-bottom:0;}
-        p.description{color:{color:Accent};margin:0;
+        .linkpost_link{margin-bottom:0;}
+        .description, .link_description{color:{color:Accent};margin:0;
                       font-size:{text:Small Font Size};}
-        p.description>#pages{margin:0;float:right;}
+        .description>#pages{margin:0;float:right;}
         h1>#pages{font-size:{text:Small Font Size};
                   text-decoration:none;font-weight:normal;
                   position:absolute;bottom:0;right:0;}
         #pages>a{text-decoration:underline;}
         .sub{font-size:{text:Small Font Size};}
-        p#footer{font-size:{text:Small Font Size};}
+        footer{font-size:{text:Small Font Size};}
         .date{font-size:{text:Small Font Size};color:{color:Accent};}
         .post{margin-top:1em;margin-bottom:1em;}
         .post.video iframe{width:100%;}
         .post.audio iframe{width:100%;}
-        pre{margin-left:0;padding:0.5em;width:auto;
-            font-family:{text:Mono Fonts};
+        pre{
+          margin-left:0;
+          padding:0.5em;
+          width:auto;
+          font-family:{text:Mono Fonts};
             {block:IfNotWordWrapCode}
-            overflow:auto;
+              overflow:auto;
             {/block:IfNotWordWrapCode}
             {block:IfWordWrapCode}
-            white-space:pre-wrap;
-            white-space:-moz-pre-wrap;
-            white-space:-o-pre-wrap;
-            white-space:-pre-wrap;
-            word-wrap:break-word;
+              white-space:pre-wrap;
+              white-space:-moz-pre-wrap;
+              white-space:-o-pre-wrap;
+              white-space:-pre-wrap;
+              word-wrap:break-word;
             {/block:IfWordWrapCode}
-            background-color:{color:Formatting Accent};
-            color:{color:Code Color};}
-        code{background-color:{color:Formatting Accent};
+            background-color:{color:Code Background Color};
+            color:{color:Code Color};
+          }
+        code{background-color:{color:Code Background Color};
              font-family:{text:Mono Fonts};
              color:{color:Code Color};}
-        blockquote{margin-left:0;padding-left:0.5em;
-                   border-left:2px solid {color:Formatting Accent};}
+        blockquote{
+          margin-left:0;
+          padding-left:0.5em;
+          border-left:2px solid {color:Blockquote Border};
+        }
         ul{margin-left:0;padding:0;}
         ul li{margin-left:2em;}
         ol{margin-left:0;padding:0;}
         ol li{margin-left:2em;}
-        img{width:100%;}
+        img{max-width:100%;}
         img.avatar{width:{text:Small Font Size};margin-right:0.5em;}
         a{color:{color:Link Color};
           {block:IfNotUnderlineLinks}
@@ -108,35 +133,29 @@
                 {block:IfUnderlineLinksOnHover}
                     text-decoration:underline;
                 {/block:IfUnderlineLinksOnHover}}
-        a.link{color:{color:Text};text-decoration:underline;}
-        a.link:hover{color:{color:Link Hover Color};}
+        .linkpost_link a{color:{color:Text};text-decoration:underline;}
+        .linkpost_link a:hover{color:{color:Link Hover Color};}
         a#page-next{float:right;}
         .like_button,.reblog_button{display:inline-block !important;
                                     margin-right:1em;}
         {CustomCSS}
     </style>
 </head><body>
-
-<h1><a href="{BlogURL}">{Title}</a>
+<header>
+<h1><a href="{BlogURL}">{Title}</a></h1>
 {block:ShowDescription}
-</h1><p class="description">
-<span>{Description}</span>
+<span class="description">{Description}</span>
 {/block:ShowDescription}
-<span id="pages"{block:HideDescription} class="sub"{/block:HideDescription}>
+<nav id="pages"{block:HideDescription} class="sub"{/block:HideDescription}>
 {block:HasPages}
 {block:Pages}<a href={URL}>{Label}</a> {/block:Pages}
 {/block:HasPages}
 {block:AskEnabled}
 <a href="/ask">{AskLabel}</a>
+<a href="/archive">Archive</a>
 {/block:AskEnabled}
-</span>
-{block:ShowDescription}
-</p>
-{block:ShowDescription}
-{block:HideDescription}
-</h1>
-{/block:HideDescription}
-<hr/>
+</nav>
+</header>
 
 <section id="posts">
 {block:Posts}{block:Text}
@@ -155,7 +174,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Text}{block:Photo}
     <article class="post photo">
         <a href="{PhotoURL-HighRes}" target="_blank">
@@ -175,7 +193,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Photo}{block:Panorama}
     <article class="post panorama">
         {LinkOpenTag}
@@ -193,7 +210,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Panorama}{block:Photoset}
     <article class="post photoset">
         {Photoset}
@@ -210,7 +226,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Photoset}{block:Quote}
     <article class="post quote">
         <blockquote>"{Quote}"</blockquote>
@@ -228,13 +243,12 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Quote}{block:Link}
     <article class="post link">
-        <h2 class="nobm"><a href="{URL}" class="link" {Target}>{Name}</a></h2>
+        <h2 class="linkpost_link"><a href="{URL}" {Target}>{Name}</a></h2>
         {block:Host}<p class="description sub">({Host})</p>{/block:Host}
         {block:Description}
-            <div class="description">{Description}</div>
+            <div class="link_description">{Description}</div>
         {/block:Description}
         {block:Date}
         <p class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></p>
@@ -246,7 +260,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Link}{block:Chat}
     <article class="post chat">
         {block:Title}
@@ -272,7 +285,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Chat}{block:Video}
     <article class="post video">
         {Video-700}{block:Caption}
@@ -288,7 +300,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Video}{block:Audio}
     <article class="post audio">
         {block:AudioEmbed}{AudioEmbed-250}{/block:AudioEmbed}
@@ -308,7 +319,6 @@
         {PostNotes-16}
         {/block:PostNotes}
     </article>
-    <hr/>
 {/block:Audio}{/block:Posts}
 </section>
 
@@ -325,17 +335,16 @@
 <hr/>
 {/block:IfDisqusShortname}{/block:PermalinkPagination}
 
-<p id="pagination">
+<nav id="pagination">
     {block:PreviousPage}
         <a id="page-prev" href="{PreviousPage}">&#171; Previous</a>
     {/block:PreviousPage}{block:NextPage}
         <a id="page-next" href="{NextPage}">Next &#187;</a>
     {/block:NextPage}
-</p>
+</nav>
 
-<p id="footer">
-    &copy; {CopyrightYears}{block:IfCopyrightHolder} <b>{text:Copyright Holder}</b>{/block:IfCopyrightHolder}.
-    theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>.
-    <b><a href="/archive">archive</a></a>
-</p>
+<footer>
+    {block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>{/block:IfCopyrightHolder}.
+    theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.
+</footer>
 </body></html>
