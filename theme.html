@@ -14,7 +14,7 @@
     <meta name="text:Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
     <meta name="text:Mono Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
     <meta name="text:Font Size" content="1em" />
-    <meta name="text:Line Height" content="1.25em" />
+    <meta name="text:Line Height" content="1.25" />
     <meta name="text:Small Font Size" content="0.875em" />
     <!--Colors should be in hexadecimal. Tumblr color pickers are confused by other conventions.-->
     <meta name="color:Background" content="#FFF" />
@@ -62,8 +62,8 @@
            {/block:IfNotDottedSeparators}
         }
         p, footer {
-          margin-top: {text:Line Height};
-          margin-bottom: {text:Line Height};
+          margin-top: {text:Line Height}em;
+          margin-bottom: {text:Line Height}em;
         }
         /*Only the blog title should look this way*/
         header>h1{
@@ -77,30 +77,33 @@
            font-weight:normal;
          }
         {/block:IfSmallTitle}
-        header>h1>a{color:inherit;}
+        header>h1>a{color:inherit;text-decoration:none;}
         /*Make sure h1s in blog posts are treated as h2s*/
         article>h1, h2{font-size:1.5em;}
         h3{font-size:1.4em;color:{color:Accent Text};}
         .linkpost_link{margin-bottom:0;}
         .description, .link_description{
           color:{color:Accent Text};
-          margin:0;
           font-size:{text:Small Font Size};
         }
-        .description>#pages{margin:0;float:right;}
-        h1>#pages{
-          text-decoration:none;
-          font-weight:normal;
-          position:absolute;
-          bottom:0;
-          right:0;
-          {block:HideDescription}
+        #pages>a {
+          display: inline-block;
+          padding: 0 0.5em;
+          text-decoration: none;
+          border-radius: 0.75em;
+          margin: 0.25em;
+          border: outset {color:Accent Text};
+          color: {color:Background};
+          background: {color:Accent Text};
           font-size:{text:Small Font Size};
-          {/block:HideDescription}
         }
-        #pages>a{text-decoration:underline;}
+        #pages>a:active {
+          border: inset {color:Accent Text};
+        }
         footer{font-size:{text:Small Font Size};}
+        
         .date{font-size:{text:Small Font Size};color:{color:Accent Text};}
+        
         .post{margin-top:1em;margin-bottom:1em;}
         .post.video iframe{width:100%;}
         .post.audio iframe{width:100%;}
@@ -171,11 +174,10 @@
   <header>
     <h1><a href="{BlogURL}">{Title}</a></h1>
     {block:ShowDescription}
-    <section class="description">{Description}</section>
-    {/block:ShowDescription}
+    <section class="description">{Description}</section>{/block:ShowDescription}
     <nav id="pages">
     {block:HasPages}
-    {block:Pages}<a href={URL}>{Label}</a> {/block:Pages}
+    {block:Pages}<a href={URL}>{Label}</a>{/block:Pages}
     {/block:HasPages}
     {block:AskEnabled}
     <a href="/ask">{AskLabel}</a>
