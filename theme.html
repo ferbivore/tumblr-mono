@@ -9,7 +9,7 @@
     {block:Description}
     <meta name="description" content="{MetaDescription}" />
     {/block:Description}
-    <meta name="if:Warning: This theme interacts poorly with long descriptions. (This isn't a setting, I just wanted to tell you this in the settings somehow.)" content="0" />
+    <meta name="color:Warning: This theme interacts poorly with long descriptions. (This isn't a setting, I just wanted to tell you this in the settings somehow.)" content="#f00" />
     <meta name="text:Content Width" content="35em" />
     <meta name="text:Copyright Holder" content="" />
     <meta name="text:Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
@@ -117,7 +117,9 @@
         
         .date{font-size:{text:Small Font Size};color:{color:Accent Text};}
         
-        .post{margin-top:1em;margin-bottom:1em;}
+        header, body>footer, .post{padding: 1.5em 0;}
+        .post>*:first-child {margin-top:0;}
+        .post>*:last-child {margin-bottom:0;}
         .post.video iframe{width:100%;}
         .post.audio iframe{width:100%;}
         pre{
@@ -157,6 +159,14 @@
         .quote>blockquote em{
           font-style: normal;
         }
+        .tag{text-decoration: none;}
+        .tag::after{
+          content: ',';
+          color:{color:Accent Text};
+        }
+        .tag:last-of-type::after{
+          content: '.';
+        }
         ul{margin-left:0;padding:0;}
         ul li{margin-left:2em;}
         ol{margin-left:0;padding:0;}
@@ -180,8 +190,10 @@
         .linkpost_link a{color:{color:Text};text-decoration:underline;}
         .linkpost_link a:hover{color:{color:Link Hover Color};}
         a#page-next{float:right;}
-        .like_button,.reblog_button{display:inline-block !important;
-                                    margin-right:1em;}
+        .like_button,.reblog_button{
+          display:inline-block !important;
+          margin-right:1em;
+        }
         {CustomCSS}
     </style>
 </head>
@@ -209,7 +221,7 @@
         {/block:Title}
         {Body}
         {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
         {/block:Date}
         {block:PermalinkPagination}
         {LikeButton}{ReblogButton}
@@ -229,7 +241,7 @@
             <p class="caption">{Caption}</p>
         {/block:Caption}
         {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
         {/block:Date}
         {block:PermalinkPagination}
         {LikeButton}{ReblogButton}
@@ -247,7 +259,7 @@
             <p class="caption">{Caption}</p>
         {/block:Caption}
         {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
         {/block:Date}
         {block:PermalinkPagination}
         {LikeButton}{ReblogButton}
@@ -264,7 +276,7 @@
                 <p class="caption">{Caption}</p>
             {/block:Caption}
             {block:Date}
-            <p class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:IfSourceURL}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}{/block:IfSourceURL}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</p>
+            <p class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:IfSourceURL}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}{/block:IfSourceURL}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</p>
             {/block:Date}
             {block:PermalinkPagination}
             {LikeButton}{ReblogButton}
@@ -281,7 +293,7 @@
             <section class="source">{Source}</section>
         {/block:Source}
         {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
         {/block:Date}
         {block:PermalinkPagination}
         {LikeButton}{ReblogButton}
@@ -299,7 +311,7 @@
             <div>{Description}</div>
         {/block:Description}
         {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
         {/block:Date}
         {block:PermalinkPagination}
         {LikeButton}{ReblogButton}
@@ -325,7 +337,7 @@
             {/block:Lines}
         </ul>
         {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
         {/block:Date}
         {block:PermalinkPagination}
         {LikeButton}{ReblogButton}
@@ -341,7 +353,7 @@
                 <p class="caption">{Caption}</p>
             {/block:Caption}
             {block:Date}
-            <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+            <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
             {/block:Date}
             {block:PermalinkPagination}
             {LikeButton}{ReblogButton}
@@ -361,7 +373,7 @@
                 <p class="caption">{Caption}</p>
             {/block:Caption}
             {block:Date}
-            <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+            <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
             {/block:Date}
             {block:PermalinkPagination}
             {LikeButton}{ReblogButton}
