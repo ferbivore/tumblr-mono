@@ -21,6 +21,7 @@
     <meta name="color:Background" content="#FFF" />
     <meta name="color:Text" content="#000" />
     <meta name="color:Accent Text" content="#666" />
+    <meta name="color:Title Color" content="#c33" />
     <meta name="color:Link Color" content="#00E" />
     <meta name="color:Link Hover Color" content="#6FF" />
     <meta name="color:Code Color" content="#666" />
@@ -81,6 +82,7 @@
         /*Only the blog title should look this way*/
         header>h1{
           font-size:2em;
+          color: {color:Title Color};
           margin:0;
           position:relative;
         }
@@ -94,6 +96,7 @@
         /*Make sure h1s in blog posts are treated as h2s*/
         article>h1, h2{font-size:1.5em;}
         h3{font-size:1.4em;color:{color:Accent Text};}
+        h4{font-size:1.25em;}
         .linkpost_link{margin-bottom:0;}
         .description, .link_description{
           color:{color:Accent Text};
@@ -105,13 +108,14 @@
           text-decoration: none;
           border-radius: 0.75em;
           margin: 0.25em;
-          border: outset {color:Accent Text};
+          border: outset {Color:Link Color};
           color: {color:Background};
-          background: {color:Accent Text};
+          background: {color:Link Color};
           font-size:{text:Small Font Size};
         }
         #pages>a:active {
-          border: inset {color:Accent Text};
+          border: inset {Color:Link Hover Color};
+          background: {color:Link Hover Color};
         }
         footer{font-size:{text:Small Font Size};}
         footer #page-prev,footer #page-next{font-size:{text:Font Size};}
@@ -160,14 +164,14 @@
         .quote>blockquote em{
           font-style: normal;
         }
-        .tag{text-decoration: none;}
+        /*.tag{text-decoration: none;}
         .tag::after{
           content: ',';
           color:{color:Accent Text};
         }
         .tag:last-of-type::after{
           content: '.';
-        }
+        }*/
         ul{margin-left:0;padding:0;}
         ul li{margin-left:2em;}
         ol{margin-left:0;padding:0;}
@@ -188,8 +192,6 @@
                 {block:IfUnderlineLinksOnHover}
                     text-decoration:underline;
                 {/block:IfUnderlineLinksOnHover}}
-        .linkpost_link a{color:{color:Text};text-decoration:underline;}
-        .linkpost_link a:hover{color:{color:Link Hover Color};}
         a#page-next{float:right;}
         .like_button,.reblog_button{
           display:inline-block !important;
@@ -204,9 +206,7 @@
     {block:ShowDescription}<section class="description">{Description}</section>{/block:ShowDescription}
     <nav id="pages">
     {block:HasPages}
-    {block:Pages}<a href={URL}>{Label}</a>{/block:Pages}
-    {/block:HasPages}
-    {block:AskEnabled}
+    {block:Pages}<a href={URL}>{Label}</a>{/block:Pages}{/block:HasPages}{block:AskEnabled}
     <a href="/ask">{AskLabel}</a>
     <a href="/archive">Archive</a>
     {/block:AskEnabled}
@@ -222,7 +222,7 @@
         {/block:Title}
         {Body}
         {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
+        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
         {/block:Date}
         {block:PermalinkPagination}
         {LikeButton}{ReblogButton}
