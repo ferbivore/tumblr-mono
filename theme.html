@@ -114,6 +114,7 @@
           border: inset {color:Accent Text};
         }
         footer{font-size:{text:Small Font Size};}
+        footer #page-prev,footer #page-next{font-size:{text:Font Size};}
         
         .date{font-size:{text:Small Font Size};color:{color:Accent Text};}
         
@@ -147,7 +148,7 @@
           margin: 0;
           padding-left: 1em;
           margin-right: 1em;
-          border-left: solid {color:Line Color};
+          border-left: solid thin {color:Line Color};
         }
         .quote>blockquote{
           padding-left: 0;
@@ -172,7 +173,7 @@
         ol{margin-left:0;padding:0;}
         ol li{margin-left:2em;}
         img{max-width:100%;}
-        img.avatar{width:{text:Small Font Size};margin-right:0.5em;}
+        img.avatar{max-height:{text:Font Size};margin-right:0.5em;}
         a{color:{color:Link Color};
           {block:IfNotUnderlineLinks}
             text-decoration:none;
@@ -402,16 +403,16 @@
     </div>
   {/block:IfDisqusShortname}{/block:PermalinkPagination}
 
-  <nav id="pagination">
-      {block:PreviousPage}
-          <a id="page-prev" href="{PreviousPage}">&#171; Previous</a>
-      {/block:PreviousPage}{block:NextPage}
-          <a id="page-next" href="{NextPage}">Next &#187;</a>
-      {/block:NextPage}
-  </nav>
-
   <footer>
-      {block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>. {/block:IfCopyrightHolder}theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.
+    <nav id="pagination">
+        {block:PreviousPage}
+            <a id="page-prev" href="{PreviousPage}">&#171; Previous</a>
+        {/block:PreviousPage}
+        {block:NextPage}
+            <a id="page-next" href="{NextPage}">Next &#187;</a>
+        {/block:NextPage}
+    </nav>
+      <p>{block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>. {/block:IfCopyrightHolder}theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.</p>
   </footer>
 </body>
 </html>
