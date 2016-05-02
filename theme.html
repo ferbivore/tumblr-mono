@@ -129,12 +129,14 @@
              font-family:{text:Mono Fonts};
              color:{color:Code Color};}
         blockquote{
-          margin-left: 0;
+          margin: 0;
           padding-left: 1em;
+          margin-right: 1em;
           border-left: solid {color:Line Color};
         }
         .quote>blockquote{
           padding-left: 0;
+          margin: 0;
           border-left: none;
           font-size: 1.5em;
           font-style: italic;
@@ -173,8 +175,7 @@
 <body>
   <header>
     <h1><a href="{BlogURL}">{Title}</a></h1>
-    {block:ShowDescription}
-    <section class="description">{Description}</section>{/block:ShowDescription}
+    {block:ShowDescription}<section class="description">{Description}</section>{/block:ShowDescription}
     <nav id="pages">
     {block:HasPages}
     {block:Pages}<a href={URL}>{Label}</a>{/block:Pages}
