@@ -121,9 +121,12 @@
           text-decoration: none;
           color: {color:Background};
         }
-        #pages>ul>li>a:active {
-          border: inset {Color:Link Hover Color};
+        #pages>ul>li:hover {
+          border-color: {Color:Link Hover Color};
           background: {color:Link Hover Color};
+        }
+        #pages>ul>li:active {
+          border-style: inset;
         }
         footer{font-size:{text:Small Font Size};}
         footer #page-prev,footer #page-next{font-size:{text:Font Size};}
@@ -223,7 +226,7 @@
     <nav id="pages">
       <ul>
       {block:HasPages}
-      {block:Pages}<li><a href={URL}>{Label}</a></li>{/block:Pages}{/block:HasPages}{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}<li><a href="/archive">Archive</a></li>
+      {block:Pages}<li><a href={URL}>{Label}</a></li>{/block:Pages}{/block:HasPages}{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}{block:SubmissionsEnabled}<li><a href="/ask">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}<li><a href="/archive">Archive</a></li>
     </ul>
     </nav>
   </header>
