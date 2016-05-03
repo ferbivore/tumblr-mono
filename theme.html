@@ -55,7 +55,7 @@
            {/block:IfCenterContent}
            background-color:{color:Background};
         }
-        article, body>footer, #disqus_whatnot {
+        article, aside, body>footer, #disqus_whatnot {
           border: {color:Line Color};
            {block:IfDottedSeparators}
              border-top-style: dotted;
@@ -136,8 +136,8 @@
         header, body>footer, .post{padding: 1.5em 0;}
         .post>*:first-child {margin-top:0;}
         .post>*:last-child {margin-bottom:0;}
-        .post.video iframe{width:100%;}
-        .post.audio iframe{width:100%;}
+        .post .video iframe{width:100%;}
+        .post .audio iframe{width:100%;}
         pre{
           margin-left:0;
           padding:0.5em;
@@ -233,115 +233,61 @@
 
   <section id="posts">
   {block:Posts}
+  <article class="post">
     {block:Text}
-      <article class="post text">
+      <span class="text">
         {block:Title}
         <h2>{Title}</h2>
         {/block:Title}
         {Body}
-        {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-        {/block:Date}
-        {block:PermalinkPagination}
-        {LikeButton}{ReblogButton}
-        {/block:PermalinkPagination}
-        {block:PostNotes}
-        {PostNotes-16}
-        {/block:PostNotes}
-      </article>
+      </span>
     {/block:Text}
     {block:Photo}
-      <article class="post photo">
+      <span class="photo">
         <a href="{PhotoURL-HighRes}" target="_blank">
         <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
         </a>
-
         {block:Caption}
             <p class="caption">{Caption}</p>
         {/block:Caption}
-        {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-        {/block:Date}
-        {block:PermalinkPagination}
-        {LikeButton}{ReblogButton}
-        {/block:PermalinkPagination}
-        {block:PostNotes}
-        {PostNotes-16}
-        {/block:PostNotes}
-      </article>
+      </span>
     {/block:Photo}
     {block:Panorama}
-      <article class="post panorama">
+      <span class="panorama">
         {LinkOpenTag}
             <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
         {LinkCloseTag}{block:Caption}
             <p class="caption">{Caption}</p>
         {/block:Caption}
-        {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-        {/block:Date}
-        {block:PermalinkPagination}
-        {LikeButton}{ReblogButton}
-        {/block:PermalinkPagination}
-        {block:PostNotes}
-        {PostNotes-16}
-        {/block:PostNotes}
-      </article>
+      </span>
     {/block:Panorama}
     {block:Photoset}
-        <article class="post photoset">
+        <span class="photoset">
             {Photoset}
             {block:Caption}
                 <p class="caption">{Caption}</p>
             {/block:Caption}
-            {block:Date}
-            <p class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:IfSourceURL}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}{/block:IfSourceURL}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</p>
-            {/block:Date}
-            {block:PermalinkPagination}
-            {LikeButton}{ReblogButton}
-            {/block:PermalinkPagination}
-            {block:PostNotes}
-            {PostNotes-16}
-            {/block:PostNotes}
-        </article>
+          </span>
     {/block:Photoset}
     {block:Quote}
-      <article class="post quote">
+      <span class="quote">
         <blockquote>"{Quote}"</blockquote>
         {block:Source}
             <section class="source">{Source}</section>
         {/block:Source}
-        {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-        {/block:Date}
-        {block:PermalinkPagination}
-        {LikeButton}{ReblogButton}
-        {/block:PermalinkPagination}
-        {block:PostNotes}
-        {PostNotes-16}
-        {/block:PostNotes}
-      </article>
+      </span>
     {/block:Quote}
     {block:Link}
-      <article class="post link">
+      <span class="link">
         <h2 class="linkpost_link"><a href="{URL}" {Target}>{Name}</a></h2>
         {block:Host}<p class="link_description">({Host})</p>{/block:Host}
         {block:Description}
             <div>{Description}</div>
         {/block:Description}
-        {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-        {/block:Date}
-        {block:PermalinkPagination}
-        {LikeButton}{ReblogButton}
-        {/block:PermalinkPagination}
-        {block:PostNotes}
-        {PostNotes-16}
-        {/block:PostNotes}
-      </article>
+      </span>
     {/block:Link}
     {block:Chat}
-      <article class="post chat">
+      <span class="chat">
         {block:Title}
             <h2>{Title}</h2>
         {/block:Title}
@@ -355,35 +301,17 @@
                 </div>
             {/block:Lines}
         </ul>
-        {block:Date}
-        <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-        {/block:Date}
-        {block:PermalinkPagination}
-        {LikeButton}{ReblogButton}
-        {/block:PermalinkPagination}
-        {block:PostNotes}
-        {PostNotes-16}
-        {/block:PostNotes}
-      </article>
+      </span>
     {/block:Chat}
     {block:Video}
-        <article class="post video">
+        <span class="video">
             {Video-700}{block:Caption}
                 <p class="caption">{Caption}</p>
             {/block:Caption}
-            {block:Date}
-            <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-            {/block:Date}
-            {block:PermalinkPagination}
-            {LikeButton}{ReblogButton}
-            {/block:PermalinkPagination}
-            {block:PostNotes}
-            {PostNotes-16}
-            {/block:PostNotes}
-        </article>
+          </span>
     {/block:Video}
     {block:Audio}
-        <article class="post audio">
+        <span class="audio">
             {block:AudioEmbed}{AudioEmbed-250}{/block:AudioEmbed}
             {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
             {block:ExternalAudio}{ExternalAudioURL}{/block:ExternalAudio}
@@ -391,17 +319,25 @@
             {block:Caption}
                 <p class="caption">{Caption}</p>
             {/block:Caption}
-            {block:Date}
-            <footer class="date">{TimeAgo}{block:HasTags}&nbsp;&middot; tagged:{/block:HasTags}{block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}{block:NoteCount}&nbsp;&middot; {NoteCountWithLabel}{/block:NoteCount}{block:ContentSource}&nbsp;&middot; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}&nbsp;&middot; <a href="{Permalink}">permalink{block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</a></footer>
-            {/block:Date}
-            {block:PermalinkPagination}
-            {LikeButton}{ReblogButton}
-            {/block:PermalinkPagination}
-            {block:PostNotes}
-            {PostNotes-16}
-            {/block:PostNotes}
-        </article>
+          </span>
     {/block:Audio}
+    {block:Date}
+      <footer class="date">
+        <a href="{Permalink}">{TimeAgo}</a>
+        {block:HasTags}&nbsp;&bull; tagged:{/block:HasTags}
+        {block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}
+        {block:NoteCount}&nbsp;&bull; {NoteCountWithLabel}{/block:NoteCount}
+        {block:ContentSource}&nbsp;&bull; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource} {block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</footer>
+    {/block:Date}
+    {block:PermalinkPagination}
+    {LikeButton}{ReblogButton}
+    {/block:PermalinkPagination}
+    </article>
+    {block:PostNotes}
+    <aside>
+    {PostNotes-16}
+    </aside>
+    {/block:PostNotes}
   {/block:Posts}
   </section>
 
@@ -424,10 +360,10 @@
   <footer>
     <nav id="pagination">
         {block:PreviousPage}
-            <a id="page-prev" href="{PreviousPage}">&#171; Previous</a>
+            <a id="page-prev" href="{PreviousPage}">&laquo; Previous</a>
         {/block:PreviousPage}
         {block:NextPage}
-            <a id="page-next" href="{NextPage}">Next &#187;</a>
+            <a id="page-next" href="{NextPage}">Next &raquo;</a>
         {/block:NextPage}
     </nav>
       <p>{block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>. {/block:IfCopyrightHolder}theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.</p>
