@@ -205,6 +205,14 @@
           display:inline-block !important;
           margin-right:1em;
         }
+        #following>ol {
+          list-style: inside none none;
+          line-height: 1;
+        }
+        #following>ol>li {
+          display: inline-block;
+          margin: 0.5em;
+        }
         {CustomCSS}
     </style>
 </head>
@@ -422,11 +430,11 @@
       <p>{block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>. {/block:IfCopyrightHolder}theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.</p>
   </footer>
   {block:IfShowPeopleIFollow}
-  <aside id="followers">
+  <aside id="following">
   	{block:Following}
-  	<h2>{lang:Following}:</h2>
+  	<h2>{lang:Following}</h2>
   	<ol>
-  	{block:Followed}<li><a href="{FollowedURL}">{FollowedTitle}</a></li>{/block:Followed}
+  	{block:Followed}<li><a href="{FollowedURL}"><img src="{FollowedPortraitURL-24}" title="{FollowedTitle}"/></a></li>{/block:Followed}
   	</ol>
   	{/block:Following}
   </aside>
