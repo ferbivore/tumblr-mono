@@ -104,10 +104,12 @@
           color:{color:Accent Text};
           font-size:{text:Small Font Size};
         }
-        #pages>a {
+        #pages>ul {
+          list-style: inside none none;
+        }
+        #pages>ul>li {
           display: inline-block;
           padding: 0 0.5em;
-          text-decoration: none;
           border-radius: 0.75em;
           margin: 0.25em;
           border: outset {Color:Link Color};
@@ -115,7 +117,11 @@
           background: {color:Link Color};
           font-size:{text:Small Font Size};
         }
-        #pages>a:active {
+        #pages>ul>li>a {
+          text-decoration: none;
+          color: {color:Background};
+        }
+        #pages>ul>li>a:active {
           border: inset {Color:Link Hover Color};
           background: {color:Link Hover Color};
         }
@@ -207,11 +213,10 @@
     <h1><a href="{BlogURL}">{Title}</a></h1>
     {block:ShowDescription}<section class="description">{Description}</section>{/block:ShowDescription}
     <nav id="pages">
-    {block:HasPages}
-    {block:Pages}<a href={URL}>{Label}</a>{/block:Pages}{/block:HasPages}{block:AskEnabled}
-    <a href="/ask">{AskLabel}</a>
-    <a href="/archive">Archive</a>
-    {/block:AskEnabled}
+      <ul>
+      {block:HasPages}
+      {block:Pages}<li><a href={URL}>{Label}</a></li>{/block:Pages}{/block:HasPages}{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}<li><a href="/archive">Archive</a></li>
+    </ul>
     </nav>
   </header>
 
