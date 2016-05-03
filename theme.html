@@ -336,10 +336,10 @@
     {block:Date}
       <footer class="date">
         <a href="{Permalink}">{TimeAgo}</a>
-        {block:HasTags}&nbsp;&bull; tagged:{/block:HasTags}
+        {block:HasTags} &bull; tagged:{/block:HasTags}
         {block:Tags} <a href="{TagURL}" class="tag">#{Tag}</a>{/block:Tags}
-        {block:NoteCount}&nbsp;&bull; {NoteCountWithLabel}{/block:NoteCount}
-        {block:ContentSource}&nbsp;&bull; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource} {block:IfDisqusShortname}&nbsp;&amp;&nbsp;comments{/block:IfDisqusShortname}</footer>
+        {block:NoteCount} &bull; {NoteCountWithLabel}{/block:NoteCount}
+        {block:ContentSource} &bull; source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource} {block:IfDisqusShortname} &amp; comments{/block:IfDisqusShortname}</footer>
     {/block:Date}<!--
     {block:PermalinkPagination}
     {LikeButton}{ReblogButton}
