@@ -15,9 +15,9 @@
     <meta name="text:Copyright Holder" content="" />
     <meta name="text:Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
     <meta name="text:Mono Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
-    <meta name="text:Font Size" content="1em" />
+    <meta name="text:Font Size" content="1rem" />
     <meta name="text:Line Height" content="1.25" />
-    <meta name="text:Small Font Size" content="0.875em" />
+    <meta name="text:Small Font Size" content="0.875rem" />
     <!--Colors should be in hexadecimal. Tumblr color pickers are confused by other conventions.-->
     <meta name="color:Background" content="#FFF" />
     <meta name="color:Text" content="#000" />
@@ -39,10 +39,7 @@
     <meta name="text:Disqus Shortname" content="" />
     <style>
         html{
-          font-size:{text:Font Size};
-          line-height:{text:Line Height};
-          font-family:{text:Fonts};
-          color:{color:Text};
+          font-size: 100%;
         }
         body{
           max-width:{text:Content Width};
@@ -55,6 +52,10 @@
              padding-right:1em;
            {/block:IfCenterContent}
            background-color:{color:Background};
+           font-size:{text:Font Size};
+           line-height:{text:Line Height};
+           font-family:{text:Fonts};
+           color:{color:Text};
         }
         article, aside, body>footer, #disqus_whatnot {
           border: {color:Line Color};
