@@ -15,9 +15,9 @@
     <meta name="text:Copyright Holder" content="" />
     <meta name="text:Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
     <meta name="text:Mono Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
-    <meta name="text:Font Size" content="1rem" />
+    <meta name="text:Font Size" content="1em" />
     <meta name="text:Line Height" content="1.25" />
-    <meta name="text:Small Font Size" content="0.875rem" />
+    <meta name="text:Small Font Size" content="0.875em" />
     <!--Colors should be in hexadecimal. Tumblr color pickers are confused by other conventions.-->
     <meta name="color:Background" content="#FFF" />
     <meta name="color:Text" content="#000" />
@@ -223,11 +223,18 @@
         }
         #following>ol {
           list-style: inside none none;
-          line-height: 1;
+          line-height: 0;
         }
         #following>ol>li {
           display: inline-block;
-          margin: 0.5em;
+          margin: 0.25rem;
+        }
+        #following>ol>li>a>img {
+          border: 0.25rem outset;
+          border-radius: 0.125rem;
+        }
+        #following>ol>li>a>img:active {
+          border-style: inset;
         }
         {CustomCSS}
     </style>
