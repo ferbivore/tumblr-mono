@@ -203,6 +203,11 @@
         .quote>blockquote em{
           font-style: normal;
         }
+        .chat .odd {color: {color:Accent Text}}
+        .chat .user_1, .chat .odd.user_1 {color: {color:Text}}
+        .chat .user_2, .chat .odd.user_2 {color: {color:Link Color}}
+        .chat .user_3, .chat .odd.user_3 {color: {color:Code Color}}
+        .chat .user_4, .chat .odd.user_4 {color: {color:Link Hover Color}}
         /*.tag{text-decoration: none;}
         .tag::after{
           content: ',';
@@ -327,16 +332,13 @@
         {block:Title}
             <h2>{Title}</h2>
         {/block:Title}
-
-        <ul class="chat">
             {block:Lines}
-                <div class="{Alt} user_{UserNumber}">
+                <p class="{Alt} user_{UserNumber}">
                     {block:Label}
                         <span class="label">{Label}</span>
                     {/block:Label}{Line}
-                </div>
+                </p>
             {/block:Lines}
-        </ul>
       </span>
     {/block:Chat}
     {block:Video}
