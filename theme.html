@@ -10,7 +10,7 @@
     <meta name="description" content="{MetaDescription}" />
     {/block:Description}
     <meta name="color:Warning: This theme interacts poorly with long descriptions. (This isn't a setting, I just wanted to tell you this in the settings somehow.)" content="#f00" />
-    <!--https://daylerees.github.io/-->
+    <meta name="color:Note: I stole my personal color scheme from https://daylerees.github.io/, and you might want to copy me." content="#fff" />
     <meta name="text:Content Width" content="35em" />
     <meta name="text:Copyright Holder" content="" />
     <meta name="text:Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
@@ -109,6 +109,7 @@
         }
         #pages>ul {
           list-style: inside none none;
+          padding-left: 0;
         }
         {block:IfNotDisplayPagesAsButtons}
           #pages>ul>li {
@@ -146,7 +147,7 @@
         .date{font-size:{text:Small Font Size};color:{color:Accent Text};}
         
         header, .post{
-          padding-bottom: 1.5em;
+          padding-bottom: {text:Line Height}em;
           {block:IfNotWordWrapPosts}
             overflow:auto;
           {/block:IfNotWordWrapPosts}
@@ -155,15 +156,15 @@
             overflow-wrap:break-word;
           {/block:IfWordWrapPosts}
         }
-        body>footer {padding-top: 1.5em;}
-        .video, .audio, .photoset, .photo, .panorama {margin-top: 1.5em;}
+        body>footer {padding-top: {text:Line Height}em;}
+        .tumblr_video_iframe, .audio_player, .post .photoset img:first-of-type, .youtube_iframe, .post .panorama img:first-of-type, .initialobject {margin-top: {text:Line Height}em;}
         .post>*:first-child {margin-top:0;}
         .post>*:last-child {margin-bottom:0;}
-        .post .video iframe{width:100%;}
+        .post .video iframe{max-width:100%;}
         .post .audio iframe{width:100%;}
         pre{
           margin-left:0;
-          padding:0.5em;
+          padding:1ch;
           width:auto;
           font-family:{text:Mono Fonts};
             {block:IfNotWordWrapCode}
@@ -184,9 +185,9 @@
              color:{color:Code Color};}
         blockquote{
           margin: 0;
-          padding-left: 1em;
-          margin-right: 1em;
-          border-left: solid thin {color:Line Color};
+          padding-left: 1.75ch;
+          margin-right: 2ch;
+          border-left: dotted 0.25ch {color:Line Color};
         }
         .quote>blockquote{
           padding-left: 0;
@@ -206,10 +207,10 @@
         .tag:last-of-type::after{
           content: '.';
         }*/
-        ul{margin-left:0;padding:0;}
-        ul li{margin-left:2em;}
-        ol{margin-left:0;padding:0;}
-        ol li{margin-left:2em;}
+        ul{margin-left:0;padding:0;padding-left:3ch;}
+        /*ul li{margin-left:2em;}*/
+        ol{margin-left:0;padding:0;padding-left:3ch;}
+        /*ol li{margin-left:2em;}*/
         img{max-width:100%;}
         img.avatar{max-height:{text:Font Size};margin-right:0.5em;}
         a{color:{color:Link Color};
@@ -275,7 +276,7 @@
     {block:Photo}
       <span class="photo">
         <a href="{PhotoURL-HighRes}" target="_blank">
-        <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
+        <img src="{PhotoURL-1280}" alt="{PhotoAlt}" class="initialobject"/>
         </a>
         {block:Caption}
             <p class="caption">{Caption}</p>
@@ -285,14 +286,14 @@
     {block:Panorama}
       <span class="panorama">
         {LinkOpenTag}
-            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" class="initialobject"/>
         {LinkCloseTag}{block:Caption}
             <p class="caption">{Caption}</p>
         {/block:Caption}
       </span>
     {/block:Panorama}
     {block:Photoset}
-        <span class="photoset">
+        <span class="photoset initialobject">
             {Photoset}
             {block:Caption}
                 <p class="caption">{Caption}</p>
@@ -386,7 +387,16 @@
       <noscript><a href="http://disqus.com/?ref_noscript">View Disqus comments</a></noscript>
     </div>
   {/block:IfDisqusShortname}{/block:PermalinkPagination}
-
+  {block:IfShowPeopleIFollow}
+  <aside id="following">
+  	{block:Following}
+  	<h2>{lang:Following}</h2>
+  	<ol>
+  	{block:Followed}<li><a href="{FollowedURL}"><img src="{FollowedPortraitURL-24}" title="{FollowedTitle}" alt="{FollowedName}: {FollowedTitle}"/></a></li>{/block:Followed}
+  	</ol>
+  	{/block:Following}
+  </aside>
+  {/block:IfShowPeopleIFollow}
   <footer>
     <nav id="pagination">
         {block:PreviousPage}
@@ -398,15 +408,5 @@
     </nav>
       <p>{block:IfCopyrightHolder}&copy; {CopyrightYears} <b>{text:Copyright Holder}</b>. {/block:IfCopyrightHolder}theme: <a href="http://themonospacetheme.tumblr.com/">mono</a>, edited <a href="https://github.com/ilzolende/tumblr-mono">here</a>.</p>
   </footer>
-  {block:IfShowPeopleIFollow}
-  <aside id="following">
-  	{block:Following}
-  	<h2>{lang:Following}</h2>
-  	<ol>
-  	{block:Followed}<li><a href="{FollowedURL}"><img src="{FollowedPortraitURL-24}" title="{FollowedTitle}"/></a></li>{/block:Followed}
-  	</ol>
-  	{/block:Following}
-  </aside>
-  {/block:IfShowPeopleIFollow}
 </body>
 </html>
