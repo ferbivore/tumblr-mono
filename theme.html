@@ -17,7 +17,7 @@
     <meta name="text:Mono Fonts" content="Menlo, Andale Mono, Consolas, DejaVu Sans Mono, monospace" />
     <meta name="text:Font Size" content="1em" />
     <meta name="text:Line Height" content="1.25" />
-    <meta name="text:Small Font Size" content="0.875em" />
+    <meta name="text:Small Font Size" content="0.875rem" />
     <!--Colors should be in hexadecimal. Tumblr color pickers are confused by other conventions.-->
     <meta name="color:Background" content="#FFF" />
     <meta name="color:Text" content="#000" />
@@ -93,9 +93,8 @@
         }
         {block:IfSmallTitle}
         header>h1{font-size:{text:Small Font Size};
-          color:{color:Accent Text};
-           font-weight:normal;
-         }
+         font-weight:normal;
+        }
         {/block:IfSmallTitle}
         header>h1>a{color:inherit;text-decoration:none;}
         /*Make sure h1s in blog posts are treated as h2s*/
@@ -157,7 +156,7 @@
           {/block:IfWordWrapPosts}
         }
         body>footer {padding-top: {text:Line Height}em;}
-        .tumblr_video_iframe, .audio_player, .post .photoset img:first-of-type, .youtube_iframe, .post .panorama img:first-of-type, .initialobject {margin-top: {text:Line Height}em;}
+        .tumblr_video_iframe, .audio_player, .html_photoset, .youtube_iframe, .post .panorama img:first-of-type, .initialobject {margin-top: {text:Line Height}em;}
         .post>*:first-child {margin-top:0;}
         .post>*:last-child {margin-bottom:0;}
         .post .video iframe{max-width:100%;}
@@ -185,9 +184,14 @@
              color:{color:Code Color};}
         blockquote{
           margin: 0;
-          padding-left: 1.75ch;
+          padding-left: 1.875ch;
           margin-right: 2ch;
-          border-left: dotted 0.25ch {color:Line Color};
+          border-left: dotted 0.125ch {color:Line Color};
+        }
+        blockquote blockquote blockquote {
+          padding-left: 0.875ch;
+          margin-right: 0;
+          font-size: {text:Small Font Size};
         }
         .quote>blockquote{
           padding-left: 0;
@@ -207,9 +211,9 @@
         .tag:last-of-type::after{
           content: '.';
         }*/
-        ul{margin-left:0;padding:0;padding-left:3ch;}
+        article ul{margin-left:0;padding:0;padding-left:3ch;}
         /*ul li{margin-left:2em;}*/
-        ol{margin-left:0;padding:0;padding-left:3ch;}
+        article ol{margin-left:0;padding:0;padding-left:3ch;}
         /*ol li{margin-left:2em;}*/
         img{max-width:100%;}
         img.avatar{max-height:{text:Font Size};margin-right:0.5em;}
@@ -235,6 +239,7 @@
         #following>ol {
           list-style: inside none none;
           line-height: 0;
+          padding-left: 0;
         }
         #following>ol>li {
           display: inline-block;
