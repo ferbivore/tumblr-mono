@@ -9,7 +9,7 @@
     {block:Description}
     <meta name="description" content="{MetaDescription}" />
     {/block:Description}
-    <meta name="color:Warning: This theme interacts poorly with long descriptions. (This isn't a setting, I just wanted to tell you this in the settings somehow.)" content="#f00" />
+    <meta name="color:Warning: This theme interacts poorly with long descriptions. (This isn't a setting, I just wanted to tell you this in the settings somehow.)" content="#fff" />
     <meta name="color:Note: I stole my personal color scheme from https://daylerees.github.io/, and you might want to copy me." content="#fff" />
     <meta name="text:Content Width" content="35em" />
     <meta name="text:Copyright Holder" content="" />
@@ -44,9 +44,11 @@
         }
         body{
           max-width:{text:Content Width};
-          margin:1em;
-          margin-left:2em;
-           {block:IfCenterContent}
+          {block:IfNotCenterContent}
+            margin:1em;
+            margin-left:2em;
+          {/block:IfNotCenterContent}
+          {block:IfCenterContent}
              margin-left:auto;
              margin-right:auto;
              padding-left:1em;
@@ -58,14 +60,17 @@
            font-family:{text:Fonts};
            color:{color:Text};
         }
-        article, aside, body>footer, #disqus_whatnot {
+        .contentblock {
           border: {color:Line Color};
            {block:IfDottedSeparators}
-             border-top-style: dotted;
+             border-bottom-style: dotted;
            {/block:IfDottedSeparators}
            {block:IfNotDottedSeparators}
-             border-top-style: solid;
+             border-bottom-style: solid;
            {/block:IfNotDottedSeparators}
+        }
+        footer.contentblock {
+          border-bottom-style: none;
         }
         p, footer {
           margin-top: {text:Line Height}em;
@@ -87,9 +92,8 @@
         /*Only the blog title should look this way*/
         header>h1{
           font-size:2em;
+          margin-bottom: 0;
           color: {color:Title Color};
-          margin:0;
-          position:relative;
         }
         {block:IfSmallTitle}
         header>h1{font-size:{text:Small Font Size};
@@ -261,7 +265,7 @@
     </style>
 </head>
 <body>
-  <header>
+  <header class="contentblock">
     <h1><a href="{BlogURL}">{Title}</a></h1>
     {block:ShowDescription}<section class="description">{Description}</section>{/block:ShowDescription}
     <nav id="pages">
@@ -274,7 +278,7 @@
 
   <section id="posts">
   {block:Posts}
-  <article class="post">
+  <article class="post contentblock">
     {block:Text}
       <span class="text">
         {block:Title}
@@ -372,7 +376,7 @@
     {/block:PermalinkPagination}-->
     </article>
     {block:PostNotes}
-    <aside id="notes">
+    <aside id="notes" class="contentblock">
     {PostNotes-16}
     </aside>
     {/block:PostNotes}
@@ -381,7 +385,7 @@
 
   {block:PermalinkPagination}
   {block:IfDisqusShortname}
-    <div id="disqus_whatnot">
+    <div id="disqus_whatnot" class="contentblock">
       <section id="disqus_thread"></section>
       <script>
           var disqus_shortname = "{text:Disqus Shortname}";
@@ -395,7 +399,7 @@
     </div>
   {/block:IfDisqusShortname}{/block:PermalinkPagination}
   {block:IfShowPeopleIFollow}
-  <aside id="following">
+  <aside id="following" class="contentblock">
   	{block:Following}
   	<h2>{lang:Following}</h2>
   	<ol>
@@ -404,7 +408,7 @@
   	{/block:Following}
   </aside>
   {/block:IfShowPeopleIFollow}
-  <footer>
+  <footer class="contentblock">
     <nav id="pagination">
         {block:PreviousPage}
             <a id="page-prev" href="{PreviousPage}">&laquo; Previous</a>
