@@ -24,7 +24,7 @@
     <meta name="color:Accent Text" content="#666" />
     <meta name="color:Title Color" content="#c33" />
     <meta name="color:Link Color" content="#00E" />
-    <meta name="color:Link Hover Color" content="#6FF" />
+    <meta name="color:Link Visited Color" content="#6FF" />
     <meta name="color:Code Color" content="#666" />
     <meta name="color:Code Background Color" content="#eff" />
     <meta name="color:Line Color" content="#999" />
@@ -136,9 +136,9 @@
             text-decoration: none;
             color: {color:Background};
           }
-          #pages>ul>li:hover {
-            border-color: {Color:Link Hover Color};
-            background: {color:Link Hover Color};
+          #pages>ul>li:visited {
+            border-color: {Color:Link Visited Color};
+            background: {color:Link Visited Color};
           }
           #pages>ul>li:active {
             border-style: inset;
@@ -211,7 +211,7 @@
         .chat .user_1, .chat .odd.user_1 {color: {color:Text}}
         .chat .user_2, .chat .odd.user_2 {color: {color:Link Color}}
         .chat .user_3, .chat .odd.user_3 {color: {color:Code Color}}
-        .chat .user_4, .chat .odd.user_4 {color: {color:Link Hover Color}}
+        .chat .user_4, .chat .odd.user_4 {color: {color:Link Visited Color}}
         /*.tag{text-decoration: none;}
         .tag::after{
           content: ',';
@@ -233,8 +233,8 @@
           {block:IfUnderlineLinks}
             text-decoration:underline;
           {/block:IfUnderlineLinks}}
-        a:hover{color:{color:Link Hover Color};
-                {block:IfNotUnderlineLinksOnHover}
+        a:visited{color:{color:Link Visited Color};}
+        a:hover{{block:IfNotUnderlineLinksOnHover}
                     text-decoration:none;
                 {/block:IfNotUnderlineLinksOnHover}
                 {block:IfUnderlineLinksOnHover}
