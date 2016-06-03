@@ -6,6 +6,6 @@ This is derived from the original Mono theme:
 > 
 > Demo blog: http://themonospacetheme.tumblr.com/
 
-I should probably license it at some point. Um, CC BY-SA 4.0?
+Update: This derivative is now also public domain (CC0).
 
 [Dayle Rees](https://github.com/daylerees/colour-schemes)'s color schemes are recommended for this theme.
